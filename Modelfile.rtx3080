@@ -1,0 +1,15 @@
+FROM hf.co/ge525/Qwen3.8-9B-Distill-uncensored-heretic-Q4_K_M-GGUF
+
+# 100% GPU Offload (all layers on GPU)
+PARAMETER num_gpu 99
+
+# Extended agentic context window for RTX 3080 (10GB / 12GB)
+PARAMETER num_ctx 65536
+PARAMETER num_batch 1024
+PARAMETER num_thread 8
+
+# Sampling parameters tuned for agentic reasoning and tool use
+PARAMETER temperature 0.6
+PARAMETER top_p 0.9
+PARAMETER top_k 20
+PARAMETER repeat_penalty 1.05
